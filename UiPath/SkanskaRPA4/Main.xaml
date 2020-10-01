@@ -1,0 +1,315 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="630,3654" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="610,3554" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="PDFOutput" />
+      <Variable x:TypeArguments="s:String[]" Name="PDFAsArray" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="568,3462" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="Issuer" />
+        <Variable x:TypeArguments="x:String" Name="IssuerSpecialty" />
+        <Variable x:TypeArguments="x:String" Name="RequestNumber" />
+        <Variable x:TypeArguments="x:String" Name="Day" />
+        <Variable x:TypeArguments="x:String" Name="Month" />
+        <Variable x:TypeArguments="x:String" Name="Year" />
+        <Variable x:TypeArguments="x:String" Name="LandBookNumber" />
+        <Variable x:TypeArguments="x:Int32" Name="CurrentRow" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\Users\Mihnea Visoiu\Desktop\SKANSKABOT\2.3.2.2.3_DLT_20190513_L_ANCPI_EXTRAS_DE_CARTE_FUNCIARA_NR._234644_Informare_38077.pdf" sap:VirtualizedContainerService.HintSize="526,59" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" Range="All" Text="[PDFOutput]" />
+      <ui:WriteTextFile DisplayName="Write Text File" FileName="C:\Users\Mihnea Visoiu\Desktop\skanska.txt" sap:VirtualizedContainerService.HintSize="526,87" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[PDFOutput]" />
+      <Assign sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="s:String[]">[PDFAsArray]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="s:String[]">[PDFOutput.Replace(System.Environment.NewLine," ").Split({" "},StringSplitOptions.None)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[Issuer]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[PDFAsArray(0)+" "+PDFAsArray(1)+" "+PDFAsArray(2)+" "+PDFAsArray(3)+" "+PDFAsArray(4)+" "+PDFAsArray(5)+" "+PDFAsArray(6)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[Issuer]" TopMost="True" />
+      <Assign sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[IssuerSpecialty]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[PDFAsArray(10)+" "+PDFAsArray(11)+" "+PDFAsArray(12)+" "+PDFAsArray(13)+" "+PDFAsArray(14)+" "+PDFAsArray(15)+" "+PDFAsArray(16)+" "+PDFAsArray(17)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,59" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[IssuerSpecialty]" TopMost="True" />
+      <Assign sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[RequestNumber]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[PDFAsArray(9)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,59" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[RequestNumber]" TopMost="True" />
+      <Assign sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[Day]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[PDFAsArray(19)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[Month]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[PDFAsArray(21)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[Year]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[PDFAsArray(23)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,59" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[Day+&quot;/&quot;+Month+&quot;/&quot;+Year]" TopMost="True" />
+      <Assign sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[LandBookNumber]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[PDFAsArray(35)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[LandBookNumber]" TopMost="True" />
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="526,59" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[&quot;[STATUS] Starting upload...&quot;]" TopMost="True" />
+      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1714" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'chrome.exe Chrome'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="7fb13a3b09734c56f92b7419eafda157" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Dashboard | SkanskaVor - Google Chrome' /&gt;&lt;wnd aaname='Horizontal' cls='Chrome_RenderWidgetHostHWND' title='Chrome Legacy Window' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target.ClippingRegion>
+                <ui:Region Rectangle="38, 85, 32, 17" />
+              </ui:Target.ClippingRegion>
+            </ui:Target>
+          </ui:Click.Target>
+        </ui:Click>
+        <ui:Click DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="1000" DisplayName="Click 'chrome.exe Chrome'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="eee1b8cc13f53dc045b7b14a70ca9a50" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Log in | SkanskaVor - Google Chrome' /&gt;&lt;wnd aaname='Horizontal' cls='Chrome_RenderWidgetHostHWND' title='Chrome Legacy Window' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target.ClippingRegion>
+                <ui:Region Rectangle="937, 424, 41, 11" />
+              </ui:Target.ClippingRegion>
+            </ui:Target>
+          </ui:Click.Target>
+        </ui:Click>
+        <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="bot1@uipath.com">
+          <ui:TypeInto.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+          </ui:TypeInto.Target>
+        </ui:TypeInto>
+        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'chrome.exe Chrome'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="674e4a58d31355e2fe51abc5caa92d41" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Log in | SkanskaVor - Google Chrome' /&gt;&lt;wnd aaname='Horizontal' cls='Chrome_RenderWidgetHostHWND' title='Chrome Legacy Window' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target.ClippingRegion>
+                <ui:Region Rectangle="935, 476, 58, 20" />
+              </ui:Target.ClippingRegion>
+            </ui:Target>
+          </ui:Click.Target>
+        </ui:Click>
+        <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="Parola123$">
+          <ui:TypeInto.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+          </ui:TypeInto.Target>
+        </ui:TypeInto>
+        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'chrome.exe Chrome'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="b86a90a11b11f47881f62fe83953bdc7" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Log in | SkanskaVor - Google Chrome' /&gt;&lt;wnd aaname='Horizontal' cls='Chrome_RenderWidgetHostHWND' title='Chrome Legacy Window' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target.ClippingRegion>
+                <ui:Region Rectangle="1166, 533, 63, 15" />
+              </ui:Target.ClippingRegion>
+            </ui:Target>
+          </ui:Click.Target>
+        </ui:Click>
+        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  /Containers?Containe...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="03d4258e4d2536a67d0193c5e6cd07fb" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Dashboard | SkanskaVor - Google Chrome' /&gt;&lt;wnd aaname='Horizontal' cls='Chrome_RenderWidgetHostHWND' title='Chrome Legacy Window' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target.ClippingRegion>
+                <ui:Region Rectangle="30, 356, 60, 35" />
+              </ui:Target.ClippingRegion>
+            </ui:Target>
+          </ui:Click.Target>
+        </ui:Click>
+        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'P'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c701aacb292332f8a0c8fab9d22dab37" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Dashboard | SkanskaVor - Google Chrome' /&gt;&lt;wnd aaname='Horizontal' cls='Chrome_RenderWidgetHostHWND' title='Chrome Legacy Window' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target.ClippingRegion>
+                <ui:Region Rectangle="55, 406, 63, 17" />
+              </ui:Target.ClippingRegion>
+            </ui:Target>
+          </ui:Click.Target>
+        </ui:Click>
+        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'chrome.exe'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="2160f8ea31394e406ced2ccafb482615" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Project | SkanskaVor - Google Chrome' /&gt;&lt;wnd cls='Intermediate D3D Window' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target.ClippingRegion>
+                <ui:Region Rectangle="157, 55, 37, 8" />
+              </ui:Target.ClippingRegion>
+            </ui:Target>
+          </ui:Click.Target>
+        </ui:Click>
+        <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'chrome.exe'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_11" SendWindowMessages="False" SimulateType="False" Text="http://localhost:55585/Documents/UiPath">
+          <ui:TypeInto.Target>
+            <ui:Target Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="1b45ea06968afc9cb89895fafbd8e3f1" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Project | SkanskaVor - Google Chrome' /&gt;&lt;wnd cls='Intermediate D3D Window' /&gt;" WaitForReady="INTERACTIVE">
+              <ui:Target.ClippingRegion>
+                <ui:Region Rectangle="195, 53, 26, 13" />
+              </ui:Target.ClippingRegion>
+            </ui:Target>
+          </ui:TypeInto.Target>
+        </ui:TypeInto>
+        <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey 'chrome.exe'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="enter" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+          <ui:SendHotkey.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="06bd364ea4d837a1fab85c87e1254da5" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Project | SkanskaVor - Google Chrome' /&gt;&lt;wnd cls='Intermediate D3D Window' /&gt;" WaitForReady="INTERACTIVE" />
+          </ui:SendHotkey.Target>
+        </ui:SendHotkey>
+      </Sequence>
+    </Sequence>
+  </Sequence>
+</Activity>
